@@ -1,15 +1,12 @@
 <?php
-// Đường dẫn đến tệp db.php
+// Đường dẫn đến file cần đọc
 $file_path = '../config/db.php';
 
-// Kiểm tra xem tệp có tồn tại không
+// Kiểm tra xem file có tồn tại không
 if (file_exists($file_path)) {
-    // Đọc nội dung của tệp
-    $content = file_get_contents($file_path);
-
-    // Hiển thị nội dung
-    echo '<pre>' . htmlspecialchars($content) . '</pre>';
+    // Đọc nội dung file và hiển thị
+    echo highlight_file($file_path, true);
 } else {
-    echo 'Tệp không tồn tại.';
+    echo "File không tồn tại!";
 }
 ?>
