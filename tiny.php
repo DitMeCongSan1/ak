@@ -6,8 +6,8 @@ define('APP_TITLE', 'xNeonn - Manager');
 
 $use_auth = true;
 $auth_users = array(
-    'admin' => '$2a$12$8Nr0CYmV.AY3yGSoOHAubuNPL6/U9rL3Yh/LCyevD3Q5bXryLmvrS',
-    'user' => '$2a$12$8Nr0CYmV.AY3yGSoOHAubuNPL6/U9rL3Yh/LCyevD3Q5bXryLmvrS'
+    'admin' => '$2y$10$CbQpFyb6P0PKGgwvNTeFduEOWypkw6k38VXqV1oaNRsH81vfWTk2m',
+    'user' => '$2y$10$CbQpFyb6P0PKGgwvNTeFduEOWypkw6k38VXqV1oaNRsH81vfWTk2m'
 );
 
 $readonly_users = array(
